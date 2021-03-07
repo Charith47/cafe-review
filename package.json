@@ -1,0 +1,23 @@
+{
+  "name": "cafe-review",
+  "version": "1.0.0",
+  "description": "A simple cafe review app for learning firebase ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "firebase",
+    "cafe",
+    "review",
+    "html",
+    "css",
+    "frontend",
+    "server"
+  ],
+  "author": "loki",
+  "license": "ISC",
+  "devDependencies": {
+    "purgecss": "^4.0.0"
+  }
+}

@@ -7,8 +7,11 @@
         <title>Scoresso</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <div id="rating-values"></div>
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/rating.css">
+        <script src="https://kit.fontawesome.com/8908f651ad.js" crossorigin="anonymous"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
     </head>
@@ -16,28 +19,46 @@
         <div id="app-container">
             <h1>Scoresso ☕</h1>
             <div id="app-body">
-
-                <div id="toggle">
+                
+                <div id="tabs">
                     <ul class="nav nav-pills" role="tablist">
-                        <li class="nav-item" id="read-review" >
-                            <a class="nav-link" onclick="toggle()" data-toggle="pill" href="#reviews">See Reviews</a>
+                        <li class="nav-item" id="read-review-btn" >
+                            <a class="nav-link" onclick="toggle('r')" data-toggle="pill" href="#reviews">See Reviews</a>
                         </li>
-                        <li class="nav-item" id="add-review" >
-                            <a class="nav-link" onclick="toggle()" data-toggle="pill" href="#add-review">Add Reviews</a>
+                        <li class="nav-item" id="add-review-btn" >
+                            <a class="nav-link" onclick="toggle('a')" data-toggle="pill" href="#add-review">Add Reviews</a>
                         </li>
                     </ul>
                 </div>
 
-                <div id="review-list">
+                <div id="review-list"></div>
+                <div id="rating-menu">
+    
+                    <div id="submit-review">
+                        <fieldset class="rating">
+                            <input class="rstar" type="radio" id="star5" name="rating" value="5" /><label class = "fas fa-star" for="star5" title="Awesome - 5 stars"></label>   
+                            <input class="rstar" type="radio" id="star4" name="rating" value="4" /><label class = "fas fa-star" for="star4" title="Pretty good - 4 stars"></label>
+                            <input class="rstar" type="radio" id="star3" name="rating" value="3" /><label class = "fas fa-star" for="star3" title="Meh - 3 stars"></label>
+                            <input class="rstar" type="radio" id="star2" name="rating" value="2" /><label class = "fas fa-star" for="star2" title="Kinda bad - 2 stars"></label>   
+                            <input class="rstar" type="radio" id="star1" name="rating" value="1" /><label class = "fas fa-star" for="star1" title="Sucks big time - 1 star"></label>    
+                        </fieldset>
+                    </div>
+                </br></br></br>
 
+                    <div id="input-fields">
+                        <form id="input-form">
+                        <input type="text" name="cafeName" placeholder="Cafe name">
+                        <input type="text" name="cafeLocation" placeholder="Cafe location"> <br>
+                        <textarea type="text" name="cafeReview" placeholder="Speak your mind..."></textarea><br>
+                        <button id="send-btn">Submit</button>
+                        </form>
+                    </div>
+                    
                 </div>
-
                 <div>
             </div>
         </div>
-
-
-      
+       
         <script>
             var firebaseConfig = {
                 apiKey: "AIzaSyCQh_zJN9Fl5TnoIIExsKr8baSguMS-U5Y",
@@ -53,6 +74,7 @@
             const db = firebase.firestore();
             db.settings({timestampsInSnapshots: true});
         </script>
+        
         <script src="index.js"></script>
     </body>
 </html>
